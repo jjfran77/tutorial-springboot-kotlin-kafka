@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)file:///C:/Users/Juanfran/Downloads/Tutorial.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="width=device-width,initial-scale=1,shrink-to-fit=no" id="Viewport" name="viewport">
+<link rel="stylesheet" type="text/css" media="all" href="./Tutorial_files/main-57f9fd33746ade817d7c1b7bb8f84180.css">
+<meta name="theme-color" content="#6db33f">
+<meta name="apple-mobile-web-app-title" content="spring">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+<title>Construir una aplicacion con Spring Boot basada en Kotlin</title>
+<link rel="stylesheet" type="text/css" href="./Tutorial_files/guide-f8efb1c8a31441954f373af0c54c58e9.css">
+
+
+                      <link id="mktoForms2BaseStyle" rel="stylesheet" type="text/css" href="./Tutorial_files/forms2.css"><link id="mktoForms2ThemeStyle" rel="stylesheet" type="text/css" href="./Tutorial_files/forms2-theme-simple.css"><style>#mktoStyleLoaded {color:#123456;}</style><style>#mktoStyleLoaded {color:#123456;}</style><style>#mktoStyleLoaded {color:#123456;}</style></head><body id="guide" class=" light light light light light light" data-new-gr-c-s-check-loaded="14.1067.0" data-gr-ext-installed="" cz-shortcut-listen="true">}
+                      <style>[_nghost-jfa-c24]{font-family:Open Sans,sans-serif;color:#121212}</style>
+
+<script src="./Tutorial_files/theme-f367e6936a70ad2e6b3dcb91c6673a9f.js.descarga"></script>
+<header>
+<nav id="nav">
+<div id="nav-inner" class="container flex jc-between ai-center">
+<a id="logo-focus" tabindex="1" href="https://spring.io/">
+<img id="springlogo" class="block" src="./Tutorial_files/spring-logo-9146a4d3298760c2e7e49595184e1975.svg" alt="Spring">
+</a>
+
+
+
+<div id="mobile-nav-open" class="pointer">
+<div id="hamburger">
+<div class="burger-bar"></div>
+<div class="burger-bar"></div>
+<div class="burger-bar"></div>
+</div>
+
+
+<svg version="1.1" class="mobile-close pointer" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.6 14.6" style="enable-background:new 0 0 14.6 14.6;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#000000;stroke-widdata-th-3;stroke-miterlimit:10;}</style><title>close</title><line class="st0" x1="1.5" y1="1.5" x2="13.1" y2="13.1"></line><line class="st0" x1="13.1" y1="1.5" x2="1.5" y2="13.1"></line></svg>
+</div>
+
+
+<nav id="mobile-nav" class="border-box rel">
+<div class="rel">
+<div id="mobile-why" class="mobile-category flex jc-between ai-center">
+<div class="mobile-title antialiased cursor-d">Why Spring</div>
+<div class="mobile-nav-arrow"></div>
+</div>
+<div id="mobile-why-items" class="mobile-expanded-category">
+<ul>
+<li><a href="https://spring.io/why-spring">Overview</a></li>
+<li><a href="https://spring.io/microservices">Microservices</a></li>
+<li><a href="https://spring.io/reactive">Reactive</a></li>
+<li><a href="https://spring.io/event-driven">Event Driven</a></li>
+<li><a href="https://spring.io/cloud">Cloud</a></li>
+<li><a href="https://spring.io/web-applications">Web Applications</a></li>
+<li><a href="https://spring.io/serverless">Serverless</a></li>
+<li><a href="https://spring.io/batch">Batch</a></li>
+</ul>
+</div>
+<div id="mobile-learn" class="mobile-category flex jc-between ai-center">
+<div class="mobile-title antialiased cursor-d">Learn</div>
+<div class="mobile-nav-arrow"></div>
+</div>
+<div id="mobile-learn-items" class="mobile-expanded-category">
+<ul>
+<li><a href="https://spring.io/learn">Overview</a></li>
+<li><a href="https://spring.io/quickstart">Quickstart</a></li>
+<li><a href="https://spring.io/guides">Guides</a></li>
+
+<li><a href="https://spring.io/blog">Blog</a></li>
+</ul>
+</div>
+<div id="mobile-projects" class="mobile-category flex jc-between ai-center">
+<div class="mobile-title antialiased cursor-d">Projects</div>
+<div class="mobile-nav-arrow"></div>
+</div>
+<div id="mobile-project-items" class="mobile-expanded-category">
+<ul>
+<li><a href="https://spring.io/projects">Overview</a></li>
+<li><a href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
+<li><a href="https://spring.io/projects/spring-framework">Spring Framework</a></li>
+<li><a href="https://spring.io/projects/spring-cloud">Spring Cloud</a></li>
+<li><a href="https://spring.io/projects/spring-cloud-dataflow">Spring Cloud Data Flow</a></li>
+<li><a href="https://spring.io/projects/spring-data">Spring Data</a></li>
+<li><a href="https://spring.io/projects/spring-integration">Spring Integration</a></li>
+<li><a href="https://spring.io/projects/spring-batch">Spring Batch</a></li>
+<li><a href="https://spring.io/projects/spring-security">Spring Security</a></li>
+<li><a class="blue mb-2 inline-block" href="https://spring.io/projects">View all projects</a></li>
+<p class="uppercase smallest white">Development Tools</p>
+<li><a href="https://spring.io/tools">Spring Tools 4</a></li>
+<li><a href="https://start.spring.io/">Spring Initializr <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><polyline points="15 10.94 15 15 1 15 1 1 5.06 1" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></polyline><polyline points="8.93 1 15 1 15 7.07" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></polyline><line x1="15" y1="1" x2="8" y2="8" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></line></svg></a></li>
+</ul>
+</div>
+<a href="https://spring.io/training" class="mobile-link block"><div class="mobile-title antialiased">Training</div></a>
+<a href="https://spring.io/support" class="mobile-link block"><div class="mobile-title antialiased">Support</div></a>
+<div id="mobile-community" class="mobile-category flex jc-between ai-center">
+<div class="mobile-title antialiased cursor-d">Community</div>
+<div class="mobile-nav-arrow"></div>
+</div>
+<div id="mobile-community-items" class="mobile-expanded-category">
+<ul>
+<li><a href="https://spring.io/community">Overview</a></li>
+<li><a href="https://spring.io/events">Events</a></li>
+<li><a href="https://spring.io/team">Team</a></li>
+</ul>
+</div>
+
+</div>
+</nav>
+<div id="search-nav" role="search">
+<div class="container relative">
+<form id="searchheaderform" action="https://spring.io/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+<input type="text" name="q" id="searchheaderinput" autocomplete="off" placeholder="Search for documentation, guides, and posts...">
+<input type="submit" value="" id="searchheadersubmit" data-disable-with="">
+</form>
+
+</div>
+</div>
+</div></nav></header>
+<div>
+<div></div>
+<div class="container-fluid">
+<main class="main-body--wrapper">
+<div class="row-fluid">
+<div class="span8 mobile-left-pane">
+<div class="content--title desktop-only">Tutorial</div>
+
+<article class="content--container">
+<h1 class="title">Tutorial - Construir una aplicación Spring Boot basada en Kotlin (Integración kafka con couchbase)</h1>
+<div class="article-body"><div class="paragraph">
+<p>Para la realización de este tutorial he elegido como lenguaje de programación Kotlin y como herramienta de empaquetado he usado Gradle</p>
+</div>
+<div class="paragraph">
+<p>La aplicación que he relizado consiste un varios productores y consumidores de kafka además de un repositorio de couchbase donde se grabará el mensaje procesador por el consumidor.</p>
+</div> <div class="sect1"><h2>Topología de la aplicación</h2><div class="imageblock">
+<div class="content"><div class="paragraph">
+<p>A continuación mostraré un grafico enseñando la topología de la aplicación diseñada.</p>
+</div>
+    
+<img src="./Tutorial_files/topology_app.png" alt="initializr">
+</div>
+</div>
+</div>
+
+<div class="sect1">
+<h2 id="_creating_a_new_project">Construyendo el proyecto</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La forma más sencilla de tener el esqueleto de la aplicación con las dependencias básicas es ir  a la web de sprint y usar el "initilizr Website</p>
+</div>
+<div class="sect2">
+
+<div class="paragraph">
+<p><a href="https://start.spring.io/#!language=kotlin&amp;type=gradle-project" class="bare">https://start.spring.io/#!language=kotlin&amp;type=gradle-project</a>selecciona Kotlin and Gradle.</p>
+</div>
+
+<div class="imageblock">
+<div class="content">
+<img src="./Tutorial_files/initializr.png" alt="initializr">
+</div>
+</div>
+<div class="paragraph">
+<p>Al pulsar en generar, esto generará un fichero zin con una estructura genérica del proyecto, como podemos ver en la imagen hemos seleccionado que es un proyecto gradle con kotlin como lenguaje, la versión de java y algunas dependencias que nos harán falta, aunque posterioriormente se añadirán más ya de forma manual</p>
+</div>
+</div>
+<div class="sect2">
+
+<div class="paragraph">
+
+</div>
+<div class="listingblock">
+<div class="content">
+
+</div>
+</div>
+
+</div>
+<div class="sect2">
+<h3 id="using-intellij-idea">Entorno de trabajo IntelliJ IDEA</h3>
+<div class="paragraph">
+<p>Para esta demo he usado como entorno de IDE, el IntelliJ, simplemente basta con abrir el proyecto que se generó con el Initilizr.</p>
+</div>
+
+<div class="imageblock">
+<div class="content">
+<img src="./Tutorial_files/intellij1.png" alt="intellij1">
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gradle-build">Añadiendo dependecias y plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para poder añadir nuevas dependecias o editar las existentes así como plugins, necesitaremos habrir un fichero llamado <b>build.gradle.kts</b>.</p>
+</div>
+<div class="sect2">
+
+<div class="paragraph">
+
+</div>
+<div class="paragraph">
+
+</div>
+<div class="paragraph">
+<p><code>build.gradle.kts</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="kotlin">
+    <span class="kwd">
+val kotlinCoroutinesVersion: String by project
+val springBootVersion: String by project
+val springCloudVersion: String by project
+val springKafkaTestVersion: String by project
+val testContainersVersion: String by project
+
+plugins {
+	id("org.springframework.boot") version "2.7.1"
+	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	kotlin("jvm") version "1.6.21"
+	kotlin("plugin.spring") version "1.6.21"
+	kotlin("kapt") version "1.7.0"
+
+}
+
+group = "es.atsistemas.poc"
+version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_15
+
+repositories {
+	mavenCentral()
+	maven { url = uri("https://repo.spring.io/milestone") }
+}
+
+
+extra["springCloudVersion"] = "2021.0.3"
+
+dependencies {
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.springframework.cloud:spring-cloud-starter-sleuth:3.1.2")
+
+	implementation("org.springframework.cloud:spring-cloud-stream:3.2.4")
+	implementation("org.springframework.data:spring-data-couchbase")
+	implementation("org.springframework.cloud:spring-cloud-stream-binder-kafka:3.2.4")
+	implementation("org.springframework.kafka:spring-kafka")
+	implementation("org.apache.kafka:kafka-streams")
+
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1")
+	implementation("org.mapstruct:mapstruct:1.5.2.Final")
+	kapt("org.mapstruct:mapstruct-processor:1.5.2.Final")
+
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.cloud:spring-cloud-stream-test-support:3.1.2")
+
+
+}
+
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.kotlincompile> {
+	kotlinOptions {
+		freeCompilerArgs = listOf("-Xjsr305=strict")
+		jvmTarget = "15"
+	}
+}
+
+tasks.withType<test> {
+	useJUnitPlatform()
+}
+
+
+        
+    </test></org.jetbrains.kotlin.gradle.tasks.kotlincompile></span></code></pre>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+
+
+<div class="sect1">
+<h2 id="">Generación del controller que va recibir el mensaje via rest</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En mi ejemplo necesitaré generar un controllador Rest que reciba via post un json, que sera los datos de contacto de una persona</p>
+</div>
+<div class="paragraph">
+<p><code>MessageController.kt</code></p><div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="kotlin">
+    <span class="kwd">package es.atsistemas.kafka.processor.web
+
+import es.atsistemas.kafka.processor.kafka.producer.KafkaContactProducer
+import es.atsistemas.kafka.processor.model.Contact
+import org.slf4j.LoggerFactory
+import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Mono
+
+/**
+ * @author Juan Francisco Guerrero (jfguerrrero@atsistemas.com)
+ */
+@RestController
+class MessageController(private val kafkaContactProducer: KafkaContactProducer) {
+
+    private val logger = LoggerFactory.getLogger(javaClass)
+
+    @PostMapping(path = ["/contact"], consumes = ["application/json"])
+    fun send(@RequestBody contact: Contact): Mono<void> {
+        logger.info("send() {}", contact)
+        return kafkaContactProducer.send(contact)
+    }
+
+}
+</void></span></code></pre>
+</div><p></p>
+</div>
+<div class="listingblock">
+
+</div>
+<div class="paragraph">
+<p>Con esto ya tendríamos configurado nuestro punto de entrada a la aplicación.
+</p>
+</div>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="sect1">
+<h2 id="">Configuración de los tópicos y flujos asociados a ellos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para esta tarea necesitaremos usar el fichero de configurcion de spring, en este caso el <b>application.yml </b></p>
+</div>
+<div class="paragraph">
+<p><code>application.yml</code></p><div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="kotlin">
+    <span class="kwd">spring:
+  application:
+    name: demo-processor-streams
+  cloud:
+    stream:
+      function:
+        definition: contactProducer;process;clientProducer
+      bindings:
+        contactProducer-out-0:
+          destination: contact
+        process-in-0:
+          destination: contact
+        clientProducer-out-0:
+          destination: client
+      kafka:
+        binder:
+          brokers: 127.0.0.1:9092
+          replication-factor: 1
+          configuration:
+            auto-offset-reset: latest
+          producerProperties:
+            key:
+              serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+
+  sleuth:
+    sampler:
+      probability: 1
+    messaging:
+      kafka:
+        enabled: true
+      messaging:
+        kafka:
+          enabled: true
+    integration:
+      enabled: true
+
+<void> {
+        logger.info("send() {}", contact)
+        return kafkaContactProducer.send(contact)
+    }
+
+}
+</void></span></code></pre>
+</div><p></p>
+</div>
+<div class="listingblock">
+
+</div>
+<div class="paragraph">
+<p>Como vemos en la configuración anterior tenemos dos tópicos (contact y client) y a su vez un flujo de entrada y otro de salida par el tópico contact y uno sólo de entrada para el client
+    
+</p>
+<p>Una vez definidos los flujos debemos configurar los consumidores y productores asociados a dichos flujos.
+</p></div>
+
+
+
+
+
+
+
+
+</div>
+</div><div class="sect1">
+<h2 id="">Configuración de los Productores</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vamos a crear un fichero llamado
+<b>KafkaProducerConfiguration.kt </b>  donde vamos a asociar los flujos de productores que declaramos en el fichero  <b>application.yml </b></p>
+</div>
+<div class="paragraph">
+<p><code>KafkaProducerConfiguration.kt</code></p><div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="kotlin">
+    <span class="kwd">package es.atsistemas.kafka.processor.configuration
+
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.BeanFactory
+import org.springframework.cloud.sleuth.instrument.messaging.MessagingSleuthOperators
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.messaging.Message
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Sinks
+import java.util.function.Supplier
+
+/**
+ * @author Juan Francisco Guerrero (jfguerrrero@atsistemas.com)
+ */
+@Configuration
+class KafkaProducerConfiguration(private val beanFactory: BeanFactory) {
+
+    private val logger = LoggerFactory.getLogger(javaClass)
+
+    @Bean
+    fun contactProducerSink(): Sinks.Many<message<bytearray>&gt; = Sinks.many().unicast().onBackpressureBuffer()
+
+    @Bean
+    fun clientProducerSink(): Sinks.Many<message<bytearray>&gt; = Sinks.many().unicast().onBackpressureBuffer()
+
+    @Bean
+    fun contactProducer(): Supplier<flux<message<bytearray>&gt;&gt; = Supplier {
+        contactProducerSink().asFlux().map {
+            val msg = MessagingSleuthOperators.handleOutputMessage(beanFactory, MessagingSleuthOperators.forInputMessage(beanFactory, it))
+            logger.debug("Produced message for text{}", msg)
+            msg
+        }
+    }
+
+    @Bean
+    fun clientProducer(): Supplier<flux<message<bytearray>&gt;&gt; = Supplier {
+        clientProducerSink().asFlux().map {
+            val msg = MessagingSleuthOperators.handleOutputMessage(beanFactory, MessagingSleuthOperators.forInputMessage(beanFactory, it))
+            logger.debug("Produced message  for processed text{}", msg)
+            msg
+        }
+    }
+}</flux<message<bytearray></flux<message<bytearray></message<bytearray></message<bytearray><void> {
+        logger.info("send() {}", contact)
+        return kafkaContactProducer.send(contact)
+    }
+
+}
+</void></span></code></pre>
+</div><p></p>
+</div>
+<div class="listingblock">
+
+</div>
+<div class="paragraph">
+<p>Acabamos de asociar los productores a los flujos asociados a los tópicos, pero todavía nos queda definir las clases productoras que recibirán los mensajes y harán uso de estos producers
+</p>
+</div>
+
+
+
+
+
+
+
+
+</div>
+</div><div class="sect1">
+<h2 id="">Contact Producer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vamos a crear un fichero llamado
+<b>ContactProducer.kt</b>, que ofrecera un metodo público que recibirá un objecto de tipo contact, que haciendo uso de la clase anterior producirá un mensaje en el tópico Contact</p>
+</div>
+<div class="paragraph">
+<p><code>ContactProducer.kt</code></p><div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="kotlin">
+    <span class="kwd">package es.atsistemas.kafka.processor.kafka.producer
+
+import es.atsistemas.kafka.processor.mapper.ContactMapper
+import es.atsistemas.kafka.processor.model.Contact
+import org.springframework.kafka.support.KafkaHeaders
+import org.springframework.messaging.Message
+import org.springframework.messaging.support.MessageBuilder
+import org.springframework.stereotype.Component
+import reactor.core.publisher.Mono
+import reactor.core.publisher.Sinks
+import java.time.OffsetDateTime
+
+/**
+ * @author Juan Francisco Guerrero (jfguerrrero@atsistemas.com)
+ */
+@Component
+class KafkaContactProducer(private val contactProducerSink: Sinks.Many<message<bytearray>&gt;, private val contactMapper: ContactMapper) {
+
+    fun send(contact: Contact): Mono<void> {
+
+        val dateTime = OffsetDateTime.now().toInstant().toEpochMilli()
+
+        val key = contact.nif
+        val value = contactMapper.toJson(contact)
+
+        val message = MessageBuilder.withPayload(value.toByteArray())
+            .setHeader(KafkaHeaders.MESSAGE_KEY, key.toByteArray())
+            .setHeader(KafkaHeaders.TIMESTAMP, dateTime)
+            .build()
+
+        contactProducerSink.emitNext(message, Sinks.EmitFailureHandler.FAIL_FAST)
+        return Mono.empty()
+    }
+
+
+}</void></message<bytearray><message<bytearray>&gt; = Sinks.many().unicast().onBackpressureBuffer()
+
+    @Bean
+    fun clientProducerSink(): Sinks.Many<message<bytearray>&gt; = Sinks.many().unicast().onBackpressureBuffer()
+
+    @Bean
+    fun contactProducer(): Supplier<flux<message<bytearray>&gt;&gt; = Supplier {
+        contactProducerSink().asFlux().map {
+            val msg = MessagingSleuthOperators.handleOutputMessage(beanFactory, MessagingSleuthOperators.forInputMessage(beanFactory, it))
+            logger.debug("Produced message for text{}", msg)
+            msg
+        }
+    }
+
+    @Bean
+    fun clientProducer(): Supplier<flux<message<bytearray>&gt;&gt; = Supplier {
+        clientProducerSink().asFlux().map {
+            val msg = MessagingSleuthOperators.handleOutputMessage(beanFactory, MessagingSleuthOperators.forInputMessage(beanFactory, it))
+            logger.debug("Produced message  for processed text{}", msg)
+            msg
+        }
+    }
+}</flux<message<bytearray></flux<message<bytearray></message<bytearray></message<bytearray><void> {
+        logger.info("send() {}", contact)
+        return kafkaContactProducer.send(contact)
+    }
+
+}
+</void></span></code></pre>
+</div><p></p>
+</div>
+<div class="listingblock">
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div><div class="sect1">
+<h2 id="">Consumer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vamos a crear un fichero llamado
+<b>ProcessorStream.kt</b>, que será el encargado de consumir los mensajes del tópico contact, para ello vamos a asociar a este consumidor el flujo que habíamos definido anteriormente (process-in-0)</p>
+</div>
+<div class="paragraph">
+<p><code>ProcessorStream.kt</code></p><div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="kotlin">
+    <span class="kwd">package es.atsistemas.kafka.processor.kafka.stream
+
+import es.atsistemas.kafka.processor.kafka.producer.KafkaClientProducer
+import es.atsistemas.kafka.processor.mapper.ClientMapper
+import es.atsistemas.kafka.processor.mapper.ContactMapper
+import es.atsistemas.kafka.processor.model.Contact
+import es.atsistemas.kafka.processor.repository.ClientRepository
+import org.slf4j.LoggerFactory
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.messaging.Message
+import java.util.function.Consumer
+
+/**
+ * @author Juan Francisco Guerrero (jfguerrrero@atsistemas.com)
+ */
+@Configuration
+class ProcessorStream {
+
+    private val logger = LoggerFactory.getLogger(javaClass)
+
+    @Bean
+    fun process(KafkaProcessedProducer : KafkaClientProducer, clientRepository: ClientRepository,
+                clientMapper: ClientMapper, contactMapper: ContactMapper): Consumer<message<string?>?&gt;  {
+        return Consumer<message<string?>?&gt; {
+
+            msg: Message<string?>? -&gt;  LoggerFactory.getLogger(javaClass).debug("consumed message &lt;{}&gt;",msg)
+
+            if (msg != null) {
+
+                val key = getKey(msg)
+                val value = getValue(msg)
+
+                var contact: Contact = contactMapper.toContact(value)
+
+                var client = clientMapper.mapContactToClient(contact)
+                client.id = "client::" + client.nif
+                client.bankAccount = "es12439043940"
+                client.modality = "premium"
+
+                clientRepository.save(client)
+
+
+                KafkaProcessedProducer.sendProcessedText(key, client)
+
+            }
+
+        }
+    }
+
+    private fun getValue(msg: Message<string?>) = msg.payload.toString()
+
+    private fun getKey(msg: Message<string?>): String{
+        val byteArray = msg.headers.get("kafka_receivedMessageKey")
+        val key = String(byteArray as ByteArray)
+        return key
+    }
+
+
+}
+</string?></string?></string?></message<string?></message<string?><message<bytearray>&gt;, private val contactMapper: ContactMapper) {
+
+    fun send(contact: Contact): Mono<void> {
+
+        val dateTime = OffsetDateTime.now().toInstant().toEpochMilli()
+
+        val key = contact.nif
+        val value = contactMapper.toJson(contact)
+
+        val message = MessageBuilder.withPayload(value.toByteArray())
+            .setHeader(KafkaHeaders.MESSAGE_KEY, key.toByteArray())
+            .setHeader(KafkaHeaders.TIMESTAMP, dateTime)
+            .build()
+
+        contactProducerSink.emitNext(message, Sinks.EmitFailureHandler.FAIL_FAST)
+        return Mono.empty()
+    }
+
+
+}</void></message<bytearray><message<bytearray>&gt; = Sinks.many().unicast().onBackpressureBuffer()
+
+    @Bean
+    fun clientProducerSink(): Sinks.Many<message<bytearray>&gt; = Sinks.many().unicast().onBackpressureBuffer()
+
+    @Bean
+    fun contactProducer(): Supplier<flux<message<bytearray>&gt;&gt; = Supplier {
+        contactProducerSink().asFlux().map {
+            val msg = MessagingSleuthOperators.handleOutputMessage(beanFactory, MessagingSleuthOperators.forInputMessage(beanFactory, it))
+            logger.debug("Produced message for text{}", msg)
+            msg
+        }
+    }
+
+    @Bean
+    fun clientProducer(): Supplier<flux<message<bytearray>&gt;&gt; = Supplier {
+        clientProducerSink().asFlux().map {
+            val msg = MessagingSleuthOperators.handleOutputMessage(beanFactory, MessagingSleuthOperators.forInputMessage(beanFactory, it))
+            logger.debug("Produced message  for processed text{}", msg)
+            msg
+        }
+    }
+}</flux<message<bytearray></flux<message<bytearray></message<bytearray></message<bytearray><void> {
+        logger.info("send() {}", contact)
+        return kafkaContactProducer.send(contact)
+    }
+
+}
+</void></span></code></pre>
+</div><p></p>
+</div>
+<div class="paragraph">
+<p>Como vemos en este ejemplo el consumidor va recibir mensajes de tipo contact del tópico, a continuación usara la sdk de couchbase para almacenarlos y finalmente llamará al productor clientProducer para publicarlos en el topico client.
+<b>ProcessorStream.kt</b>, que será el encargado de consumir los mensajes del tópico contact, para ello vamos a asociar a este consumidor el flujo que habíamos definido anteriormente (process-in-0)</p>
+</div><div class="listingblock">
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div><div class="sect1">
+<h2 id="">Código fuente</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si se quiere probar la aplicación completa se puede obtener el código fuente desde mi repositorio de github</p><p></p>
+
+<p></p>
+</div>
+<div class="paragraph">
+<p><code>https://github.com/jjfran77/demo-processor-streams</code>  </p><div class="paragraph">
+<p>Si tu estas familiarizado con versiones antiguas de springboot y kafka, también incluyo otro ejemplo para que veas como sería el proyecto con kotlin, este ejemplo es idéntico en topologia con lo cual te podrí facilitar la migración a esta nueva versión <code>https://github.com/jjfran77/demo-processor-streams-deprecated</code>
+</p>
+
+<p></p>
+</div><p></p><p></p>
+</div>
+<div class="paragraph">
+<p>
+</p>
+</div><div class="listingblock">
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div></div>
+    <div><p>Autor: <b>Juan Francisco Guerrero Castillo</b></p></div>
+</article>
+</div>
+
+</div>
+</main>
+</div>
+</div>
+
+
+
+
+
+
+</body></html>
