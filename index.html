@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)file:///C:/Users/Juanfran/Downloads/Tutorial.html -->
+<!-- saved from url=(0110)file:///C:/Users/Juanfran/WS/microservicios/atsistemas/demo/kotlin/tutorial-springboot-kotlin-kafka/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" id="Viewport" name="viewport">
-<link rel="stylesheet" type="text/css" media="all" href="./Tutorial_files/main-57f9fd33746ade817d7c1b7bb8f84180.css">
+<link rel="stylesheet" type="text/css" media="all" href="./index_files/main-57f9fd33746ade817d7c1b7bb8f84180.css">
 <meta name="theme-color" content="#6db33f">
 <meta name="apple-mobile-web-app-title" content="spring">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,18 +10,18 @@
 
 
 <title>Construir una aplicacion con Spring Boot basada en Kotlin</title>
-<link rel="stylesheet" type="text/css" href="./Tutorial_files/guide-f8efb1c8a31441954f373af0c54c58e9.css">
+<link rel="stylesheet" type="text/css" href="./index_files/guide-f8efb1c8a31441954f373af0c54c58e9.css">
 
 
-                      <link id="mktoForms2BaseStyle" rel="stylesheet" type="text/css" href="./Tutorial_files/forms2.css"><link id="mktoForms2ThemeStyle" rel="stylesheet" type="text/css" href="./Tutorial_files/forms2-theme-simple.css"><style>#mktoStyleLoaded {color:#123456;}</style><style>#mktoStyleLoaded {color:#123456;}</style><style>#mktoStyleLoaded {color:#123456;}</style></head><body id="guide" class=" light light light light light light" data-new-gr-c-s-check-loaded="14.1067.0" data-gr-ext-installed="" cz-shortcut-listen="true">}
+                      <link id="mktoForms2BaseStyle" rel="stylesheet" type="text/css" href="./index_files/forms2.css"><link id="mktoForms2ThemeStyle" rel="stylesheet" type="text/css" href="./index_files/forms2-theme-simple.css"><style>#mktoStyleLoaded {color:#123456;}</style><style>#mktoStyleLoaded {color:#123456;}</style><style>#mktoStyleLoaded {color:#123456;}</style></head><body id="guide" class=" light light light light light light light light" data-new-gr-c-s-check-loaded="14.1067.0" data-gr-ext-installed="" cz-shortcut-listen="true">}
                       <style>[_nghost-jfa-c24]{font-family:Open Sans,sans-serif;color:#121212}</style>
 
-<script src="./Tutorial_files/theme-f367e6936a70ad2e6b3dcb91c6673a9f.js.descarga"></script>
+<script src="./index_files/theme-f367e6936a70ad2e6b3dcb91c6673a9f.js.descarga"></script>
 <header>
 <nav id="nav">
 <div id="nav-inner" class="container flex jc-between ai-center">
 <a id="logo-focus" tabindex="1" href="https://spring.io/">
-<img id="springlogo" class="block" src="./Tutorial_files/spring-logo-9146a4d3298760c2e7e49595184e1975.svg" alt="Spring">
+<img id="springlogo" class="block" src="./index_files/spring-logo-9146a4d3298760c2e7e49595184e1975.svg" alt="Spring">
 </a>
 
 
@@ -136,7 +136,7 @@
 <p>A continuación mostraré un grafico enseñando la topología de la aplicación diseñada.</p>
 </div>
     
-<img src="./Tutorial_files/topology_app.png" alt="initializr">
+<img src="./index_files/topology_app.png" alt="initializr">
 </div>
 </div>
 </div>
@@ -155,7 +155,7 @@
 
 <div class="imageblock">
 <div class="content">
-<img src="./Tutorial_files/initializr.png" alt="initializr">
+<img src="./index_files/initializr.png" alt="initializr">
 </div>
 </div>
 <div class="paragraph">
@@ -182,7 +182,7 @@
 
 <div class="imageblock">
 <div class="content">
-<img src="./Tutorial_files/intellij1.png" alt="intellij1">
+<img src="./index_files/intellij1.png" alt="intellij1">
 </div>
 </div>
 
@@ -202,10 +202,10 @@
 <div class="paragraph">
 
 </div>
+
 <div class="paragraph">
 
-</div>
-<div class="paragraph">
+</div><div class="paragraph">
 <p><code>build.gradle.kts</code></p>
 </div>
 <div class="listingblock">
@@ -280,6 +280,8 @@ tasks.withType<test> {
         
     </test></org.jetbrains.kotlin.gradle.tasks.kotlincompile></span></code></pre>
 </div>
+</div><div class="">
+<p> <label> código fuente: </label><a href="https://github.com/jjfran77/demo-processor-streams/blob/main/build.gradle.kts">build.gradle.kts</a></p>
 </div>
 </div>
 
@@ -322,6 +324,8 @@ class MessageController(private val kafkaContactProducer: KafkaContactProducer) 
 }
 </void></span></code></pre>
 </div><p></p>
+</div><div class="">
+<p> <label> código fuente: </label><a href="https://github.com/jjfran77/demo-processor-streams/blob/main/src/main/kotlin/es/atsistemas/kafka/processor/web/MessageController.kt">MessageController.kt</a></p>
 </div>
 <div class="listingblock">
 
@@ -399,6 +403,9 @@ class MessageController(private val kafkaContactProducer: KafkaContactProducer) 
 
 }
 </void></span></code></pre>
+</div>
+<div class="">
+<p> <label> código fuente: </label><a href="https://github.com/jjfran77/demo-processor-streams/blob/main/src/main/resources/application.yml">application.yml</a></p>
 </div><p></p>
 </div>
 <div class="listingblock">
@@ -479,6 +486,12 @@ class KafkaProducerConfiguration(private val beanFactory: BeanFactory) {
 
 }
 </void></span></code></pre>
+</div>
+
+
+    
+<div class="">
+<p> <label> código fuente: </label><a href="https://github.com/jjfran77/demo-processor-streams/blob/main/src/main/kotlin/es/atsistemas/kafka/processor/configuration/KafkaProducerConfiguration.kt">KafkaProducerConfiguration.kt</a></p>
 </div><p></p>
 </div>
 <div class="listingblock">
@@ -571,7 +584,11 @@ class KafkaContactProducer(private val contactProducerSink: Sinks.Many<message<b
 
 }
 </void></span></code></pre>
-</div><p></p>
+</div>
+
+
+<p> <label> código fuente: </label><a href="https://github.com/jjfran77/demo-processor-streams/blob/main/src/main/kotlin/es/atsistemas/kafka/processor/kafka/producer/KafkaContactProducer.kt">ContactProducer.kt</a></p>
+    <p></p>
 </div>
 <div class="listingblock">
 
@@ -706,6 +723,10 @@ class ProcessorStream {
 </void></span></code></pre>
 </div><p></p>
 </div>
+
+
+    <p> <label> código fuente: </label><a href="https://github.com/jjfran77/demo-processor-streams/blob/main/src/main/kotlin/es/atsistemas/kafka/processor/kafka/stream/ProcessorStream.kt">ProcessorStream.kt</a></p>
+    
 <div class="paragraph">
 <p>Como vemos en este ejemplo el consumidor va recibir mensajes de tipo contact del tópico, a continuación usara la sdk de couchbase para almacenarlos y finalmente llamará al productor clientProducer para publicarlos en el topico client.
 <b>ProcessorStream.kt</b>, que será el encargado de consumir los mensajes del tópico contact, para ello vamos a asociar a este consumidor el flujo que habíamos definido anteriormente (process-in-0)</p>
@@ -731,13 +752,102 @@ class ProcessorStream {
 <p></p>
 </div>
 <div class="paragraph">
-<p><code>https://github.com/jjfran77/demo-processor-streams</code>  </p><div class="paragraph">
-<p>Si tu estas familiarizado con versiones antiguas de springboot y kafka, también incluyo otro ejemplo para que veas como sería el proyecto con kotlin, este ejemplo es idéntico en topologia con lo cual te podrí facilitar la migración a esta nueva versión <code>https://github.com/jjfran77/demo-processor-streams-deprecated</code>
+<p><a href="https://github.com/jjfran77/demo-processor-streams">https://github.com/jjfran77/demo-processor-streams</a>  </p><div class="paragraph">
+<p>Si tu estas familiarizado con versiones antiguas de springboot y kafka, también incluyo otro ejemplo para que veas como sería el proyecto con kotlin, este ejemplo es idéntico en topologia con lo cual te podrí facilitar la migración a esta nueva versión <a href="https://github.com/jjfran77/demo-processor-streams-deprecated">https://github.com/jjfran77/demo-processor-streams-deprecated</a>                                     
 </p>
 
 <p></p>
 </div><p></p><p></p>
 </div>
+<div class="paragraph">
+<p>
+</p>
+</div><div class="listingblock">
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div><div class="sect1">
+<h2 id="">Para probar esta aplicación</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para probar esta aplicación lo mas recomendable es tener instalado docker para correr en el tanto Kafka como Couchbase, ademas tambien es aconsejable usar Postman para realizar las llamadas rest a la aplicación</p>
+<p>A continuación indico el fichero de docker compose usado para generar kafka y couchbase</p>
+
+
+<div class="sect2">
+
+<div class="paragraph">
+
+</div>
+
+<div class="paragraph">
+
+</div><div class="paragraph">
+<p><code>docker-compose.yml</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="kotlin">
+    <span class="kwd">
+
+    version: '3'
+
+services:
+  # this is our kafka cluster.
+  kafka-cluster:
+    image: landoop/fast-data-dev:cp3.3.0
+    environment:
+      ADV_HOST: 127.0.0.1         # Change to 192.168.99.100 if using Docker Toolbox
+      RUNTESTS: 0                 # Disable Running tests so the cluster starts faster
+      FORWARDLOGS: 0              # Disable running 5 file source connectors that bring application logs into Kafka topics
+      SAMPLEDATA: 0               # Do not create sea_vessel_position_reports, nyc_yellow_taxi_trip_data, reddit_posts topics with sample Avro records.
+    ports:
+      - 2181:2181                 # Zookeeper
+      - 3030:3030                 # Landoop UI
+      - 8081-8083:8081-8083       # REST Proxy, Schema Registry, Kafka Connect ports
+      - 9581-9585:9581-9585       # JMX Ports
+      - 9092:9092                 # Kafka Broker
+  couchbase:
+    container_name: couchbase
+    hostname: couchbase
+    image: couchbase
+    volumes:
+      - ~/couchbase/data:/opt/couchbase/var
+    ports:
+      - 8091:8091
+      - 8092:8092
+      - 8093:8093
+      - 11210:11210
+    
+    
+    </span></code></pre>
+</div>
+</div>
+
+
+<p>También adjunto una captura de la llamada usada para probar la aplicación./p&gt;
+
+</p><div class="imageblock">
+<div class="content">
+<img src="./index_files/call_postman.png" alt="intellij1">
+</div>
+</div>
+
+</div>
+<p></p>
+
+<p></p>
+</div>
+
 <div class="paragraph">
 <p>
 </p>
